@@ -1,0 +1,41 @@
+{%extends 'base.html'%}
+{% block title %}
+<title>Players</title>
+{%endblock%}
+{%block content%}
+<br>
+
+<div class="container">
+  <h4 class="text-align-center">Total players <span data-purecounter-start="0" data-purecounter-end="{{c}}" data-purecounter-duration="1" class="purecounter" style="background-color:white; padding:5px; border-radius:190px 190px;"></span></h4> <hr>
+  <span ></span>
+  <div class="row">
+      {% for player in player%}
+      <div class=" col col-lg-6 mt-3 left" id="i" data-aos="zoom-out" data-aos-delay="100">
+          <div class="card mb-4 m">
+            <div class="card-body">
+                 {% if player.image%}
+                <img class="card-img-top" src="{{player.image.url}}" alt="Card image" style="width:100%">
+                {%else%}
+                    <p>no image yet</p>
+                {%endif%}
+                <hr>
+                <h2 style="text-align: center;" class="card-title">{{player.name|upper}}</h2>
+                
+                <p class="card-text text-muted h6">Kit Number:{{player.kit_number}}</p>
+              <h4 class="card-text">{{player.position}}</h4>
+                <a href="{% url 'player:player-details' player.id %}" class="btn btn-primary">View Profile &rarr;</a>
+            </div>
+        </div>
+  
+      
+        
+    </div>
+    {% endfor %}
+    </div>
+  </div>
+  <style>
+    .m{
+        background-color: gold;
+    }
+</style>
+{%endblock%}

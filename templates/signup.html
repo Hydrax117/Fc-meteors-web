@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+{% block content %}
+
+{% for message in messages %}
+<h5 style="color:red ;">{{message}}</h5>
+{%endfor%}
+
+<form action="signup" method="post" enctype="multipart/form-data">
+    {%csrf_token%}
+    <!-- <label for="username">username</label>
+    <input type="text" name="username" id=""><br>
+
+    <label for="email">email</label>
+    <input type="email" name="email" id="" ><br>
+
+    <label for="first_name">First Name</label>
+    <input type="text" name="first_name" id=""> <br>
+
+    <label for="last_name">Last name</label>
+    <input type="text" name="last_name" id="" placeholder="optional"> <br>
+    <label for="position">position</label>
+    <input type="text" name="position" id=""><br>
+    <input type="number" name="kit_number" id="" placeholder="jersey number">
+    <label for="password">password</label>
+    <input type="password" name="password" id="" ><br> -->
+    {{form.as_p}}
+    
+   
+    <input type="submit" value="signup">
+</form>
+{%endblock%}

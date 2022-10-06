@@ -1,0 +1,113 @@
+{%extends 'base.html' %} 
+{%block title %} 
+<title>Matches</title>
+{%endblock%}
+{%block content%}
+<div class="container">
+    <div class="recent">
+        <span>Results Last 5 matches</span>  
+        
+        <ul class="r">
+            {% for result in results%}
+    
+            <li>{{ result.title}}</li>
+            <li>{{ result.goal_scorers }}</li>
+            {%endfor%}      
+        </ul>
+        
+    </div>
+</div>
+
+<h3 style="text-align: center;">Our Upcoming Matches</h3>
+<div class="row">
+    
+    {% for match in match%}
+    <div class=" col col-lg-6 mt-3 left" id="i">
+        <div class="card mb-4 text-align-center">
+          <div class="card-body">
+            {% if match.match_type %}
+            <h4>{{ match.match_type}}</h4>
+            {%endif%}
+              <h2 style="text-align: center;" class="card-title">{{match.title|title}}</h2>
+              <h4 class="card-text">{{match.date|date}}</h4>
+            <p class="card-text text-muted h6">{{match.time}}</p>
+            <h4 class="card-text">{{ match.venue}}</h4>
+            <h4 class="card-text">{{match.kit}}</h4>
+              <!-- <a href="" class="btn btn-primary">Read More &rarr;</a> -->
+          </div>
+      </div>   
+    </div>
+    {% endfor%} 
+</div>
+
+<h3 style="text-align: center;">Our Previous Matches</h3>
+<div class="">
+    {% for result in results%}
+<div class="card mt-3 text-align-center">
+    <div class="card-body">
+    {% if result.match_type %}
+    <h4>{{ result.match_type}}</h4>
+    {%endif%}
+    <h3>{{ result.title|title}} </h3>
+    <div class="row">
+        <div class="col-lg-6" style="text-align: end;">
+            {{ result.goal_scorers|linebreaksbr }} 
+        </div>
+    </div> <hr>
+    <div class="hidden" id="hidden">
+            <h4 class="card-text">{{result.date|date}}</h4>
+            <p class="card-text text-muted h6">{{result.time}}</p>
+            <h4 class="card-text">{{ result.venue}}</h4>
+            <h4 class="card-text">{{match.}}</h4>         
+    </div>
+    <p class="btn btn-primary" id="more">More</p>
+    <p class="btn btn-primary" id="hide" style="display: none;">hide</p>
+
+
+    </div>
+</div>
+{%endfor%}
+
+</div>
+
+{{ result.goal_scorers|linebreaksbr }}
+<style>
+    .hidden,#hidden{
+        display: none;
+      }
+    .recent{
+        width: 100%;
+        background-color: black;
+        color: red;
+        overflow: hidden;
+        
+    }
+    .recent .r{
+        position: relative;
+        animation:texts 25s infinite ease-in-out;
+        width: 100%;
+        left: 100%;
+    }
+    li{
+        float: left;
+        list-style-type: none;
+        margin-left: 20px;
+    }
+    @keyframes texts {
+        1%{
+            
+            
+        }
+        100%{
+             
+            left: -100%;
+        }
+
+        
+        
+    }
+</style>
+<script>
+   
+</script>
+{% endblock%}

@@ -1,0 +1,116 @@
+{% extends 'base.html'%}
+  {%block title %}
+  <title> Home</title>
+  {%endblock%}
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+  {%block content %}
+  <main id="main"> 
+
+    <!-- ======= Portfolio Details Section ======= -->
+    <section id="portfolio-details" class="portfolio-details">
+      <div class="container">
+
+        <div class="row gy-4">
+
+          <div class="col-sm-12">
+            <div class="portfolio-details-slider swiper">
+              <div class="swiper-wrapper align-items-center">
+                {% for picture in team %}
+                <div class="swiper-slide">
+                <a href="{{ picture.image.url}}"><img src="{{ picture.image.url}}" alt="" srcset="" class="img-fluid" ></a>
+              </div>
+              {% endfor%}
+
+
+              </div>
+              <div class="swiper-pagination"></div>
+            </div>
+          </div>
+          <br><br><br>
+          <div class="welcome text-align-center">
+          <h2 data-aos="fade-up" ata-aos-delay="200"> We are... </h2>
+          <h1 data-aos="zoom-out" ata-aos-delay="10000" style="font-size:60px ;">Fc Meteors</h1>
+          </div>
+         
+        </div>
+        
+<br><br><br><hr><br>
+        <div class="row" data-aos="zoom-out" data-aos-delay="100">
+          <h3 class="text-align-center">About Us</h3>
+          <h4 class="text-align-center">About Fc Meteors Takur Adua'a</h4>
+
+          <div class="col-lg-6">
+            <br><br>
+            <img src="../static/logo.jpeg" class="img-fluid" alt="">
+          </div>
+          <div class="col-lg-6">
+            <br><br><br>
+            <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quaerat, excepturi aliquid. Voluptatibus pariatur, eligendi minus nihil nesciunt quo autem soluta nisi unde earum enim quam adipisci commodi? Laboriosam, voluptatum ratione?</p>
+            <p>Home Ground: New Site stadium takur adua'a</p>
+            <p>Active Since: 2015</p>
+            <p>Trophies: 2</p>
+            <p>League: Dica Division 2A</p>
+            <p>Best place finnish: 3rd</p>
+            <p>Worst Place Finnish: 10th</p>
+            <p>Coach: Salisu Haruna </p>
+            <p>Captain: Mustapha Adamu(babau)</p>
+          </div>
+        </div>
+      </div>
+    </section><!-- End Portfolio Details Section -->
+  <section>
+    <div class="container">
+      <h2>Our officals</h2>
+      <div class="row">
+        {% for official in officials %}
+        <div class="col-lg-4 d-flex" data-aos="zoom-out" data-aos-delay="100">
+          <div class="card mt-4 d-flex ">
+            <div class="card-body">
+            <img src="{{ official.image.url}}" alt="" srcset="" class="img-fluid"> <hr>
+            <p>Name: {{official.name}}</p>
+            <p>Role: {{official.role}}</p>
+            <div class="text-align-center">
+              <a class="btn btn-primary " href="{% url 'player:officials-details' official.id %}">View Profile</a>
+            </div>
+
+
+            </div>
+          </div>
+        </div>
+        {% endfor%}
+
+        {% for player in players %}
+        {% if player.role %}
+        <div class="col-lg-4 d-flex" data-aos="zoom-out" data-aos-delay="100">
+          <div class="card mt-4 ">
+            <div class="card-body">
+              <img src="{{ player.image.url}}" alt="" srcset="" class="img-fluid"> <hr>
+              <p>Name: {{player.name}} </p>
+              <p>Role: {{player.role}}</p>
+              <div class="text-align-center"><a class="btn btn-primary " href="{% url 'player:player-details' player.id %}">View Profile</a></div>
+            
+            </div>
+          </div>
+        </div>
+        {%endif%}
+        {%endfor%}
+      </div>
+    </div>
+  </section>
+  </main><!-- End #main -->
+
+
+  <div id="preloader"></div>
+  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+
+  <!-- Vendor JS Files -->
+ 
+<style>
+  #card-img-top {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+</style>
+{%endblock%}

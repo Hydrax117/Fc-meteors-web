@@ -1,0 +1,39 @@
+{% extends 'base.html'%}
+{% block content %}
+<div class="container">
+    <div class="card mb-4  m">
+        {% if user.is_authenticated %}
+        <div class="card-body">
+            {%if player.image%}
+            <img class="card-img-top" src="{{player.image.url}}" alt="" srcset="">
+            <hr>
+            <a class="btn btn-secondary" href="{{player.image.url}}"><h2>view</h2></a>
+            {%else%}
+            <p>no images yet</p>
+            {%endif%}
+        <center><h3>{{player.username}} </h3></center>
+        <h3>First Name: {{player.first_name}}</h3>
+        <h3>Email Adress: {{player.email}}</h3>
+                {%if player.last_name%}
+                <h3>Last Name:{{player.last_name}}</h3>
+               {%endif%}        
+        <h3>Position:   {{player.position}}</h3>
+        <h3>Kit Number: {{player.kit_number}}</h3>
+        <h3>Goals: {{player.goals}}</h3>
+        <h3>Assist: {{player.assist}}</h3>
+            {%else%}
+            
+            {%endif%}
+            
+        </div>
+        
+    </div>
+</div>
+
+
+<style>
+    .m{
+        background-color: gold;
+    }
+</style>
+{% endblock%}
