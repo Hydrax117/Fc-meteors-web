@@ -4,32 +4,57 @@
 {%endblock%}
 
 {%block content %} 
-<div class="">
-    {% for result in results%}
-<div class="card mt-3 text-align-center">
-    <div class="card-body">
-    {% if result.match_type %}
-    <h4>{{ result.match_type}}</h4>
-    {%endif%}
-    <h3>{{ result.title|title}} </h3>
+<div class="container">
     <div class="row">
-        <div class="col-lg-6" style="text-align: end;">
-            {{ result.goal_scorers|linebreaksbr }} 
+        {% for result in results%}
+    
+        <div class="col-lg-4 ">
+            <div class="card mt-3 text-align-center">
+                <div class="card-body">
+                {% if result.match_type %}
+                <h4 class="card-text">{{ result.match_type}}</h4><hr>
+                {%endif%}
+                <h3>{{ result.title|title}} </h3>
+                
+                <div class="hidden1" id="hidden{{forloop.counter}}">
+                    <div class="row" >
+                        <div class="col-lg-6" style="text-align: start;">
+                            <p style="margin-left: 10%;">{{ result.goal_scorers|linebreaksbr }} </p>
+                        </div>
+                    </div> <hr>
+                        <h4 class="card-text">Date: {{result.date|date}}</h4>
+                        <p class="card-text text-muted h6">Time: {{result.time}}</p>
+                        <p class="card-text">Venue: {{ result.venue}}</p>
+                                 
+                </div>
+                <p class="btn btn-primary" id="more{{forloop.counter}}" onclick="one('{{forloop.counter}}')">More</p>
+                <p class="btn btn-primary" id="hide{{forloop.counter}}" onclick="two('{{forloop.counter}}')" style="display: none;">hide</p>
+            
+                </div>
+            </div> 
         </div>
-    </div> <hr>
-    <div class="hidden" id="hidden">
-            <h4 class="card-text">{{result.date|date}}</h4>
-            <p class="card-text text-muted h6">{{result.time}}</p>
-            <h4 class="card-text">{{ result.venue}}</h4>
-            <h4 class="card-text">{{match.}}</h4>         
-    </div>
-    <p class="btn btn-primary" id="more">More</p>
-    <p class="btn btn-primary" id="hide" style="display: none;">hide</p>
+        {%endfor%}
+ 
+    </div> <br>
 
-
-    </div>
-</div>
-{%endfor%}
 
 </div>
+<style>
+    .hidden,#hidden,.hidden1,#hidden1{
+        display: none;
+      }
+       
+   
+        body{
+          background-color: white;
+        }
+        .card{
+          box-shadow: 1px 1px ;
+        }
+        .card:hover{
+          transition: 1s ease-in-out;
+          box-shadow: 5px 5px ;
+        }
+     
+</style>
 {%endblock%}

@@ -51,7 +51,7 @@ def matches(request):
             matchs.save()
            
     print(a)
-    matches = match.objects.filter(date__gte = a).order_by('date')
+    matches = match.objects.filter(date__gte = a).order_by('-date')
     result = match.objects.filter(played = True).order_by('-date')[:5]
     context = {
         'match':matches,
@@ -146,7 +146,7 @@ def Results(request):
             matchs.played = False
             matchs.save()
             
-    result = match.objects.filter(played = True)
+    result = match.objects.filter(played = True).order_by('-date')
     context = {
         
         'results':result,

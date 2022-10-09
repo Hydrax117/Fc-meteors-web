@@ -15,16 +15,14 @@
                   <div class="swiper-slide">
                     <a href="{{player.image.url}}"><img src="{{player.image.url}}" alt="" srcset="" class="img-fluid" id="card-img-top"></a>
                 </div>
-                {%else%}
-                <p>no image yet</p>
+                 
                  {%endif%}
 
                  {% if player.image2%}
                   <div class="swiper-slide">
                     <a href="{{player.image2.url}}"><img src="{{player.image2.url}}" alt="" srcset="" class="img-fluid" id="card-img-top"></a>
                 </div>
-                {%else%}
-                <p>no image yet</p>
+                
                  {%endif%}
   
   
@@ -83,7 +81,7 @@
                     <div class="col-lg-6">
           
                       <div class="progress">
-                        <span class="skill">DRI<i class="val">{{plaayer.DRI}}</i></span>
+                        <span class="skill">DRI<i class="val">{{player.DRI}}</i></span>
                         <div class="progress-bar-wrap">
                           <div class="progress-bar" role="progressbar" aria-valuenow="{{player.DRI}}" aria-valuemin="0" aria-valuemax="100"></div>
                         </div>
@@ -110,7 +108,7 @@
                 </div>
               </section><!-- End Skills Section -->
           
-              </div>
+              </div> <hr>
 
 
         </div>
@@ -126,6 +124,9 @@
         width: 100%;
         height: 500px;
         object-fit: cover;
+      }
+      body{
+        background-color: white;
       }
 </style>
 

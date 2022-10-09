@@ -10,7 +10,7 @@
   <span ></span>
   <div class="row">
       {% for player in player%}
-      <div class=" col col-lg-6 mt-3 left" id="i" data-aos="zoom-out" data-aos-delay="100">
+      <div class="col-lg-6 mt-3 left" id="i" data-aos="zoom-out" data-aos-delay="100">
           <div class="card mb-4 m">
             <div class="card-body">
                  {% if player.image%}
@@ -34,8 +34,15 @@
     </div>
   </div>
   <style>
-    .m{
-        background-color: gold;
+   
+    body{
+      background-color: white;
+    }
+    .card{
+      box-shadow: 1px 1px ;
+    }
+    .card:hover{
+       box-shadow: 5px 5px ;
     }
 </style>
 {%endblock%}

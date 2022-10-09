@@ -66,8 +66,8 @@ class match(models.Model):
     
 class Team(models.Model):
     def upload_location(instance,filename):
-        file_path = 'Team-images/{name}-{filename}'.format(
-            name = str(instance.name),filename=filename
+        file_path = 'Team-images/team-{filename}'.format(
+            filename=filename
         )
         return file_path
     image = models.ImageField(upload_to=upload_location)
